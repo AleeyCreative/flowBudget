@@ -1,0 +1,212 @@
+/********* Mixins ***********/
+/** FlowBudget Styling by AleeyCreative **/
+
+/************************** GLOBAL STYLES *****/
+
+
+/*********************************** HEADER ***/
+
+
+.header {
+  padding: 10px;
+  z-index: 4;
+}
+.header-icon {
+  margin: 0px 5px;
+}
+.menu-bar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+.menu-item {
+  border-radius: 100%;
+}
+
+
+/*********************************** ITEM **/
+
+
+.items-view {
+  margin: 30px auto;
+  width: 600px;
+  max-height: 340px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.item-container {
+  position: relative;
+  overflow: hidden;
+}
+.item-container:hover .item-delete {
+  opacity: 1;
+}
+.item-container:hover .item {
+  box-shadow: rgba(255,170,170,0.267) 1px 1px 40px 1px;
+}
+.item {
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.item-container:nth-child(even) .item {
+  background: #f1f1f1;
+}
+.item-container:nth-child(odd) .item {
+  background: #fafafa;
+}
+.item-delete {
+  position: absolute;
+  right: 4px;
+  transiton: 0.8s;
+  opacity: 0;
+  top: 0px;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:center;
+  align-items:center;
+  width: 13px;
+  color:white;
+  height: 13px;
+  z-index:1;
+  border-radius: 100%;
+  cursor : pointer; 
+  background: #f00;
+}
+
+/***********************************ITEM INPUT FIELD **/
+.input-field {
+  padding: 2px !important;
+  font-size:.6em;
+  border: none !important;
+  outline: none !important;
+}
+.input-field:focus {
+  border-bottom: none !important;
+  outline: 0.5px solid rgba(255,17,17,0.2) !important;
+}
+.price-error {
+  background: rgba(255,17,17,0.2) !important;
+  color: #f00;
+}
+
+/** FLOATING BUTTON **/
+.floatable-btn {
+  border-radius: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 40px;
+  position: fixed;
+  bottom: 10px;
+  left: 30px;
+  z-index: 5;
+  height: 40px;
+}
+
+/*********************************** INFORMATION DISPLAY RELATED STYLES **/
+.status-display {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.alertbox {
+  padding: 14px 10px;
+  width: 600px;
+  text-align: center;
+  margin: 10px auto;
+}
+.info-box-container {
+  display: flex;
+  width: 600px;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+}
+.info-box {
+  padding: 30px;
+  position: relative;
+}
+.remaining-box:after {
+  content: '₦Remaining';
+  position: absolute;
+  left: 5px;
+  bottom: -20px;
+  font-size: 0.7em;
+}
+.total-box:after {
+  content: '₦Total';
+  bottom: -20px;
+  position: absolute;
+  left: 15px;
+  font-size: 0.7em;
+}
+.error-view {
+  position: fixed;
+  bottom: 0px;
+  margin: auto;
+  text-align: center;
+  left: 0px;
+  width: 40%;
+  border-radius: 400px;
+  background: rgba(255,34,34,0.533);
+  box-shadow: #808080 0.5px 0.5px 20px 0.5px;
+  padding: 30px;
+  color: #f11;
+  font-size: 0.9em;
+}
+
+/*********************************** FLOATING BUDGET SETTING COMPONENT ***/
+.budgetset {
+	position:fixed;
+	width:300px;
+	left:40%;
+	padding: 10px 10px;
+	top:13%;
+	z-index:30;
+}
+.budgetset-lower-container {
+	display:flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items:center;
+}
+.budgetset-textfield {
+	width: 100px !important;
+	display:inline-block !important;
+}
+.budgetset-textfield:focus {
+	border-bottom:1px solid blue !important;
+}
+
+.budgetset-button {
+}
+.budgetset-close-button {
+	position: absolute;
+  right: 4px;
+  transiton: 0.8s;
+  opacity: 1;
+  top: 0px;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:center;
+  align-items:center;
+  width: 13px;
+  color:white;
+  height: 13px;
+  z-index:1;
+  border-radius: 100%;
+  cursor : pointer; 
+  background: #f00;
+}
+
+
+/*********************************** UTILITARIANS **/
+.hide { display:none; }
+.show { display:block; }
+
+

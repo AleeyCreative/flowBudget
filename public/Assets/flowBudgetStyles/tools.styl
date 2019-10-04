@@ -1,0 +1,22 @@
+/** Handy styling mixins   **/
+
+
+makeFlexed(j,a,t)
+	display flex
+	flex-flow t
+	justify-content j
+	align-items a
+	
+	
+makeColored(bgcolor,fcolor)
+	color fcolor
+	background bgcolor
+	
+makeShadowed(col=grey,howlight)
+	box-shadow col 1px 1px howlight 1px
+
+makeDimensioned(howwide,howlong)
+	height howlong
+	width howwide
+	
+
