@@ -1,7 +1,7 @@
 ﻿import * as ACTION from './actionType'
 import uuid from 'uuid'
 import {budget} from '../constants'
-
+import {writeContent} from '../tools'
 export default function Reducer(state, action) {
 switch (action.type)
  {
@@ -25,7 +25,9 @@ switch (action.type)
    return handleTitle(state,action.data)
    break
    case ACTION.LOAD_SAVED:
-	return loadBudget()
+	return loadBudget(state)
+   case ACTION.DOWNLOAD_BUDGET:
+   return downloadBudget(state)
    default:
 	return state
  }
@@ -74,7 +76,20 @@ function handleTitle(state, {id, title}) {
 	return {...state, items:items_}
 }
 
-
+function downloadBudget (appState)  {
+let fileContent = writeContent(appState)
+let fileObj = new Blob([fileContent], {type:'text/plain; charset:utf-8'})
+let urlLink = window.URL.createObjectURL(fileObj)
+let linkTag = document.createElement('a')
+linkTag.href = urlLink
+linkTag.setAttribute('download', `budget - ${new Date().toDateString()}.txt`)
+linkTag.setAttribute('style','display:none')
+document.body.appendChild(linkTag)
+linkTag.click()
+document.body.removeChild(linkTag)
+console.log(linkTag, fileContent)
+return {...appState}
+}
 
 function loadBudget() {
 		const items = JSON.parse(localStorage.getItem(budget))

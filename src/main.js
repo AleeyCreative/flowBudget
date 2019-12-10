@@ -20,7 +20,7 @@ const FlowBudget = () => {
 		<StatusDisplay />
 		</div>
 		<Credit/>
-		<div className='float-button  button-small' onClick={dispatch}> + </div>
+		<div className='float-button  mdi mdi-download button-small' onClick={e => dispatch(_.DownloadBudget())}>  </div>
 	</AppState.Provider>
 	)
 }
