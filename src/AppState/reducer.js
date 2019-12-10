@@ -3,7 +3,7 @@ import uuid from 'uuid'
 import {budget} from '../constants'
 
 export default function Reducer(state, action) {
-switch (action.type) 
+switch (action.type)
  {
   case ACTION.ADD_ITEM:
   	return addItem(state)
@@ -12,11 +12,11 @@ switch (action.type)
   case ACTION.DELETE_ITEM:
   	return deleteItem(state,action.data)
    break
-   
+
   case ACTION.SET_BUDGET:
    return {...state, budget : action.data, remaining:action.data}
    break
-      
+
   case ACTION.HANDLE_PRICE:
    return handlePrice(state, action.data)
    break
@@ -24,12 +24,10 @@ switch (action.type)
   case ACTION.HANDLE_TITLE:
    return handleTitle(state,action.data)
    break
-	case ACTION.SAVE_TEMPORARILY:
-		return saveTemporarily(state)
-	case ACTION.LOAD_SAVED:
-		return loadBudget()
-	default:
-		return state
+   case ACTION.LOAD_SAVED:
+	return loadBudget()
+   default:
+	return state
  }
 }
 
@@ -63,7 +61,7 @@ function handlePrice(state, currentItem){
  	console.log(currentItem.price)
  	const {total, remaining} = calculateTotalAndRemaining(items_,state.budget)
  	console.log(state.total)
-	return {...state,items:items_, total, remaining} 
+	return {...state,items:items_, total, remaining}
 }
 
 function handleTitle(state, {id, title}) {
@@ -76,22 +74,10 @@ function handleTitle(state, {id, title}) {
 	return {...state, items:items_}
 }
 
-function saveTemporarily(data){
 
-const saveTimer = setInterval(() => {
-	const ls = localStorage
-	try {
-	ls.setItem('budgets',JSON.Stringify(data))
-	alert('saved successfully')
-	}
-	catch(e){
-	console.log('An error occured')
-	}
-}, 1000)
-}
 
 function loadBudget() {
-		const items = JSON.parse(localStorage.getItem(budget))	
+		const items = JSON.parse(localStorage.getItem(budget))
 	return budget
 }
 
@@ -103,6 +89,6 @@ function calculateTotalAndRemaining(items,budget) {
 	console.log(items_)
 	for(let item of items_)
 		sum= sum + parseInt(item.price)
-	return {total:sum, remaining:budget - sum} 
+	return {total:sum, remaining:budget - sum}
 }
 

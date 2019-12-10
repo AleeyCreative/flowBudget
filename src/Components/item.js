@@ -5,7 +5,7 @@ import ErrorView from './errorView'
 
 const Item = ({item}) => {
 	const [error,setError] = useState('no-error')
-	
+
 	function handlePriceChange(e,appState){
 		let price = e.target.value
 		const isOkay = true
@@ -23,15 +23,14 @@ const Item = ({item}) => {
 			<div className='item-container'>
 				<div className='item-delete mdi mdi-close-circle-outline'  onClick={(e) => appState.dispatch(_.DeleteItem(item.id)) }> </div>
 				<div className='item'>
-					<input 
+					<input
 						type='text'
 						placeholder='spaceships'
 						className='input-field'
 						defaultValue={item.title}
 						onChange = {(e) => appState.dispatch(_.FieldChange('title', item.id, e.target.value) )}
 						/>
-					
-						<input 
+						<input
 						type='number'
 						pattern='/[0-9\.]/'
 						placeholder='₦0'

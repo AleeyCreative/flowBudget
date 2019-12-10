@@ -10,7 +10,7 @@ import {handler} from './tools'
 
 const FlowBudget = () => {
 	const [flowBudgetState, dispatch] = useReducer(Reducer,initialState,setInitState)
-	
+
 	return(
 	<AppState.Provider value={{flowBudgetState,dispatch}}>
 		<div className='flowBudget'>
@@ -19,6 +19,8 @@ const FlowBudget = () => {
 		<ItemsView />
 		<StatusDisplay />
 		</div>
+		<Credit/>
+		<div className='float-button  button-small' onClick={dispatch}> + </div>
 	</AppState.Provider>
 	)
 }

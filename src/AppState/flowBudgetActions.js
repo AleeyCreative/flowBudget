@@ -21,3 +21,4 @@ export const DeleteItem = (id) => ({type:Acts.DELETE_ITEM, data:id})
 export const SetBudget = (amount) => ({type:Acts.SET_BUDGET, data:amount})
 export const SaveTemporarily = () => ({type:Acts.SAVE_TEMPORARILY})
 export const LoadSaved = () =>({type:Acts.LOAD_SAVED})
+export const ownload

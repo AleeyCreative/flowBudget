@@ -10,17 +10,17 @@ const ItemsView = () => {
 		<AppState.Consumer>
 		{(appState)=> (
 			<div className='items-view '>
+			{() => console.log(appState)}
 			{appState.flowBudgetState.items.length > 0  ? appState.flowBudgetState.items.map((item,i) => (
 				<Item item={item} key={i} />)) : <div className={emptyTextClass} > Don't feel like shopping yet </div>
 			}
-			<button 
+			<button
 				onClick={()=> appState.dispatch(_.AddItem())}
-				className=' btn floatable-button mdi mdi-plus blue darken-4 mdi-36px z-depth-4' /> 
-			
-			<button 
-				onClick={()=> appState.dispatch(_.SaveTemporarily())}
-				className=' btn floatable-button save-button mdi mdi-disk blue darken-2 mdi-24px z-depth-4' /> 
+				className=' btn floatable-button mdi mdi-plus blue darken-4 mdi-36px z-depth-4' />
 
+			<button
+				onClick={()=> appState.dispatch(_.SaveTemporarily())}
+				className=' btn floatable-button save-button mdi mdi-disk blue darken-2 mdi-24px z-depth-4' />
 			</div>
 		)}
 		</AppState.Consumer>
